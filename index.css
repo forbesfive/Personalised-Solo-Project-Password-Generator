@@ -1,0 +1,134 @@
+/* Palette
+dark    light
+#D5D4D8 #6B7280
+#1F2937 #ECFDF5
+#10B981 */
+
+body {
+    color: #D5D4D8;
+    margin: 0;
+    font-family: "Karla", sans-serif;
+}
+
+.body-light {
+    color: #6B7280;
+}
+
+.container {
+    background-color: #1F2937;
+    padding: 55px 50px;
+    max-height: 550px;
+    max-width: 550px;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+.container-light {
+    background-color: #ECFDF5;
+}
+
+#theme-btn {
+    display: block;
+    margin-left: auto;
+    background-color: #10B981;
+    font-family: "Inter", sans-serif;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    width: 60px; 
+}
+
+#heading {
+    font-weight: 800;
+    font-size: 40px;
+    width: 360px;
+    margin: 0;
+}
+
+#heading-span {
+    color: #10B981;
+}
+
+#supporting-text {
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.form-input {
+    margin-bottom: 20px;
+}
+
+#pwd-length-label {
+    vertical-align: sub;
+}
+
+#pwd-length {
+    margin-left: 20px;
+    width: 60px;
+    height: 30px;
+    background: #10B981;
+    color: #D5D4D8;
+    font-family: "Inter", sans-serif;
+    border: none;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 0 0 1px black;
+}
+
+/* Always show spinner */
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+#generate-btn {
+    width: 190px;
+    height: 40px;
+    background: #10B981;
+    border: none;
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    color: #FFFFFF;
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-shadow: 0 0 1px black;
+}
+
+hr {
+    border: 1px solid #273549;
+    border-radius: 6px;
+    margin: 35px 0px;
+}
+
+.copy-container {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.copy-btn {
+    background: #273549;
+    width: 210px;
+    height: 30px;
+    color: #55F991;
+    padding: 4px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+}
+
+#copy-btn95 {
+    margin-right: 12px;
+}
+
+#copy-btn96 {
+    margin-left: 12px;
+}
+
+.copy-text {
+    min-width: 210px;
+    min-height: 20px;
+    text-align: center;
+}

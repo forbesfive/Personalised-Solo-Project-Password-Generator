@@ -1,0 +1,40 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <!-- Import fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body id="body">
+        <div class="container" id="container">
+            <button id="theme-btn">DARK</button>
+            <h1 id="heading">Generate a <span id="heading-span">random password</span></h1>
+            <p id="supporting-text">Never use an insecure password again.</p>
+            <!-- Add number input for password length and checkbox inputs for symbols and numbers -->
+            <form>
+                <label id="pwd-length-label" for="pwd-length">Choose password length (between 8 and 15):</label>
+                <input class="form-input" type="number" id="pwd-length" name="pwd-length"  min="8" max="15" value="15"><br>
+                <label for="symbol-choice">Exclude symbols?:</label>
+                <input class="form-input" type="checkbox" id="symbol-choice" name="symbol-choice"><br>
+                <label for="number-choice">Exclude numbers?:</label>
+                <input class="form-input" type="checkbox" id="number-choice" name="number-choice"><br>
+            </form>
+            <button id="generate-btn">Generate passwords</button>
+            <hr>
+            <!-- Generate passwords to clickable buttons for copy-on-click -->
+            <div class="copy-container">
+                <button class="copy-btn" id="copy-btn95"></button>
+                <button class="copy-btn" id="copy-btn96"></button>
+            </div>
+            <!-- Notify when password copied under relevant password button -->
+            <div class="copy-container">
+                <p class="copy-text" id="copy-text-one"></p>
+                <p class="copy-text" id="copy-text-two"></p>
+            </div>
+            <script src="index.js"></script>
+        </div>
+    </body>
+</html>
