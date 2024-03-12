@@ -27,15 +27,30 @@ body {
     background-color: #ECFDF5;
 }
 
-#theme-btn {
+.theme-btn {
     display: block;
     margin-left: auto;
     background-color: #10B981;
+    color: #D5D4D8;
     font-family: "Inter", sans-serif;
-    color: #FFFFFF;
+    font-weight: bold;
     border: none;
     border-radius: 6px;
-    width: 60px; 
+    padding: 11px 10px; 
+}
+
+.theme-btn:hover {
+    background-color:#ECFDF5;
+    color: #6B7280;
+}
+
+.theme-btn-light {
+    color: #D5D4D8;
+}
+
+.theme-btn-light:hover {
+    background-color:#1F2937;
+    color: #FFFFFF;
 }
 
 #heading {
@@ -66,15 +81,14 @@ body {
 
 #pwd-length {
     margin-left: 20px;
-    width: 60px;
-    height: 30px;
+    /* width: 60px; */
+    /* height: 30px; */
     background: #10B981;
     color: #D5D4D8;
     font-family: "Inter", sans-serif;
     border: none;
     border-radius: 6px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 6px 10px;
     text-shadow: 0 0 1px black;
 }
 
@@ -85,12 +99,13 @@ input[type=number]::-webkit-inner-spin-button {
 
 #generate-btn {
     width: 190px;
-    height: 40px;
+    /* height: 40px; */
+    padding: 11px 10px;
     background: #10B981;
     border: none;
     border-radius: 6px;
     font-family: "Inter", sans-serif;
-    color: #FFFFFF;
+    color: #D5D4D8;
     margin-top: 25px;
     margin-bottom: 0;
     text-shadow: 0 0 1px black;
@@ -109,10 +124,10 @@ hr {
 
 .copy-btn {
     background: #273549;
-    width: 210px;
-    height: 30px;
+    min-width: 225px;
+    min-height: 40px; 
     color: #55F991;
-    padding: 4px 15px;
+    padding: 10px 40px 10px 40px;
     border: none;
     border-radius: 6px;
     font-weight: 500;

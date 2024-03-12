@@ -1,66 +1,85 @@
-const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
-"/"];
+// const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
+// "/"];
 
 // Create arrays for when symbols and numbers are not required in generate password
-const charactersSansSymbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
-const charactersSansNumbers = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
-"/"]
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-const charactersLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
 
 // Variables to control light/dark theme
-let themeBtn = document.getElementById("theme-btn")
-themeBtn.addEventListener("click", changeTheme)
-let themeBody = document.getElementById("body")
-let themeContainer = document.getElementById("container")
+const themeBtn = document.getElementById("theme-btn")
+const themeBody = document.getElementById("body")
+const themeContainer = document.getElementById("container")
 // Variable for user requirements on password length
-let pwdLength = document.getElementById("pwd-length")
+const pwdLength = document.getElementById("pwd-length")
 // Variables relating to value of array dependent on user requirements on numbers and symbols
-let workingArray = []
-let symbolChoice = document.getElementById("symbol-choice")
-let numberChoice = document.getElementById("number-choice")
+const symbolChoice = document.getElementById("symbol-choice")
+const numberChoice = document.getElementById("number-choice")
 // Variable for generating random password on button click
-let generateBtn = document.getElementById("generate-btn")
-generateBtn.addEventListener("click", randomPasswordGenerator)
-let isGenerated = false
+const generateBtn = document.getElementById("generate-btn")
 // Variables relating to copy password function request and notification
-let passwordOne = document.getElementById("copy-btn95")
+const passwordOne = document.getElementById("copy-btn95")
+const passwordTwo = document.getElementById("copy-btn96")
+const copyTextOne = document.getElementById("copy-text-one")
+const copyTextTwo = document.getElementById("copy-text-two")
+
+themeBtn.addEventListener("click", changeTheme)
+generateBtn.addEventListener("click", randomPasswordGenerator)
 passwordOne.addEventListener("click", copyPasswordOne)
-let passwordTwo = document.getElementById("copy-btn96")
 passwordTwo.addEventListener("click", copyPasswordTwo)
-let copyTextOne = document.getElementById("copy-text-one")
-let copyTextTwo = document.getElementById("copy-text-two")
 
 // Function to control light/dark theme
 function changeTheme() {
-    if (themeBtn.textContent === "DARK") {
+    if (themeBtn.textContent === "LIGHT") {
         themeBody.classList.add("body-light")
         themeContainer.classList.add("container-light")
-        themeBtn.textContent = "LIGHT"
+        themeBtn.classList.add("theme-btn-light")
+        themeBtn.textContent = "DARK"
     } else {
         themeBody.classList.remove("body-light")
+        themeBody.classList.remove("DARK")
         themeContainer.classList.remove("container-light")
-        themeBtn.textContent = "DARK" 
+        themeBtn.classList.remove("theme-btn-light")
+        themeBtn.textContent = "LIGHT" 
     }
 }
 
-// Function to set array contents for user requirements on numbers and symbols and call randomCharacterGenerator() function to output to webpage
+// Function to validate correct password length entered and to set array contents for user requirements on numbers and symbols and call randomCharacterGenerator() function to output to webpage
 function randomPasswordGenerator() {
-    if (symbolChoice.checked && numberChoice.checked) {
-        workingArray = charactersLetters
-    } else if (symbolChoice.checked) {
-        workingArray = charactersSansSymbols
-    } else if (numberChoice.checked) {
-        workingArray = charactersSansNumbers
+    if (pwdLength.value > 7 && pwdLength.value < 16) {
+        characters.length = 52 
+        if (symbolChoice.checked && numberChoice.checked) {
+            //uses character array with letters only
+            console.log(characters)
+        } else if (symbolChoice.checked) {
+            for (let i = 0; i < numbers.length; i++) {
+                characters.push(numbers[i])
+            }
+            console.log(characters)
+        } else if (numberChoice.checked) {
+            for (let i = 0; i < symbols.length; i++) {
+                characters.push(symbols[i])
+            }
+            console.log(characters)
+        } else {
+            for (let i = 0; i < numbers.length; i++) {
+                characters.push(numbers[i])
+            }
+            for (let i = 0; i < symbols.length; i++) {
+                characters.push(symbols[i])
+            }
+            console.log(characters)
+        }
+
+        passwordOne.textContent = randomCharacterGenerator();
+        passwordTwo.textContent = randomCharacterGenerator();
+        copyTextOne.textContent = ""
+        copyTextTwo.textContent = ""
     } else {
-        workingArray = characters
+        alert("Choose password length (between 8 and 15)")
     }
-    passwordOne.textContent = randomCharacterGenerator();
-    passwordTwo.textContent = randomCharacterGenerator();
-    isGenerated = true
-    copyTextOne.textContent = ""
-    copyTextTwo.textContent = ""
 }
 
 // Function to generate random characters string
@@ -69,15 +88,15 @@ function randomCharacterGenerator() {
     let randomNumber
     let randomCharacters = ""
     for (let i = 0; i < count; i++) {
-        randomNumber = Math.floor(Math.random() * workingArray.length)
-        randomCharacters += workingArray[randomNumber]
+        randomNumber = Math.floor(Math.random() * characters.length)
+        randomCharacters += characters[randomNumber]
     }
     return randomCharacters
 }
 
 // Function to copy password to clipboard
 function copyPasswordOne() {
-    if (isGenerated === true) {
+    if (passwordOne.value === "") {
         navigator.clipboard.writeText(passwordOne.textContent)
         // alert("Copied the text: " + passwordOne.textContent);
         copyTextOne.textContent = "Password Copied"
@@ -87,7 +106,7 @@ function copyPasswordOne() {
 
 // Function to copy password to clipboard
 function copyPasswordTwo() {
-    if (isGenerated === true) {
+    if (passwordTwo.value === "") {
         navigator.clipboard.writeText(passwordTwo.textContent)
         // alert("Copied the text: " + passwordTwo.textContent);
         copyTextTwo.textContent = "Password Copied"
