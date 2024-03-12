@@ -25,6 +25,8 @@ const passwordTwo = document.getElementById("copy-btn96")
 const copyTextOne = document.getElementById("copy-text-one")
 const copyTextTwo = document.getElementById("copy-text-two")
 
+let workingArray = []
+
 themeBtn.addEventListener("click", changeTheme)
 generateBtn.addEventListener("click", randomPasswordGenerator)
 passwordOne.addEventListener("click", copyPasswordOne)
@@ -48,25 +50,16 @@ function changeTheme() {
 
 // Function to validate correct password length entered and to set array contents for user requirements on numbers and symbols and call randomCharacterGenerator() function to output to webpage
 function randomPasswordGenerator() {
-    if (pwdLength.value > 7 && pwdLength.value < 16) {
-        characters.length = 52 
+    if (pwdLength.value > 7 && pwdLength.value < 16) { 
+        workingArray = characters
         if (symbolChoice.checked && numberChoice.checked) {
             //uses character array with letters only
         } else if (symbolChoice.checked) {
-            for (let i = 0; i < numbers.length; i++) {
-                characters.push(numbers[i])
-            }
+            workingArray = characters.concat(numbers)
         } else if (numberChoice.checked) {
-            for (let i = 0; i < symbols.length; i++) {
-                characters.push(symbols[i])
-            }
+            workingArray = characters.concat(symbols)
         } else {
-            for (let i = 0; i < numbers.length; i++) {
-                characters.push(numbers[i])
-            }
-            for (let i = 0; i < symbols.length; i++) {
-                characters.push(symbols[i])
-            }
+            workingArray = characters.concat(numbers, symbols)
         }
 
         passwordOne.textContent = randomCharacterGenerator();
@@ -84,8 +77,8 @@ function randomCharacterGenerator() {
     let randomNumber
     let randomCharacters = ""
     for (let i = 0; i < count; i++) {
-        randomNumber = Math.floor(Math.random() * characters.length)
-        randomCharacters += characters[randomNumber]
+        randomNumber = Math.floor(Math.random() * workingArray.length)
+        randomCharacters += workingArray[randomNumber]
     }
     return randomCharacters
 }
