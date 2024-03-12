@@ -52,17 +52,14 @@ function randomPasswordGenerator() {
         characters.length = 52 
         if (symbolChoice.checked && numberChoice.checked) {
             //uses character array with letters only
-            console.log(characters)
         } else if (symbolChoice.checked) {
             for (let i = 0; i < numbers.length; i++) {
                 characters.push(numbers[i])
             }
-            console.log(characters)
         } else if (numberChoice.checked) {
             for (let i = 0; i < symbols.length; i++) {
                 characters.push(symbols[i])
             }
-            console.log(characters)
         } else {
             for (let i = 0; i < numbers.length; i++) {
                 characters.push(numbers[i])
@@ -70,7 +67,6 @@ function randomPasswordGenerator() {
             for (let i = 0; i < symbols.length; i++) {
                 characters.push(symbols[i])
             }
-            console.log(characters)
         }
 
         passwordOne.textContent = randomCharacterGenerator();
